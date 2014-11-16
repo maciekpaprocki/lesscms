@@ -1,0 +1,10 @@
+{
+    "less":{
+        "from":"less/*",
+        "to":"public/css"
+    },
+    "js":{
+        "from":"js/*",
+        "to":"public/js"
+    }
+}
