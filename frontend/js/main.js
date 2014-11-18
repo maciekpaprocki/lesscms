@@ -1,20 +1,26 @@
-(function($) {
-    $.fn.tabs = function(options) {
+(function ($) {
+    $.fn.tabs = function (options) {
         options = $.extend({
-            tabsNav: 'h3',
-            tabsContent: '.tabs-tab'
+            tabsNav: 'nav.tabs-nav a',
+            tabsContent: '.tabs-tab',
+            on:'click hover',
+            firsActive:false
         }, options);
-        this.each(function() {
+
+        this.each(function () {
             var $this = $(this),
                     $nav = $this.find(options.tabsNav),
                     $tabs = $this.find(options.tabsContent),
                     $all = $nav.add($tabs);
-            $nav.click(function() {
-                $all.removeClass('active');
-                $tabs.filter($(this).addClass('active').data('for')).addClass('active'); 
+            $nav.on(options.on,function () {
+                $all.removeClass('active').attr('aria-hidden', 'true');
+                $tabs.filter($(this).addClass('active').data('for')).addClass('active').attr('aria-hidden', 'false');
             });
-            $nav.first().click();
-        });
-    };
+            if(options.firsActive){
+                $nav.first().click();
+            }
+            
+        }); 
+    }; 
     $('.tabs').tabs();
 })(jQuery);

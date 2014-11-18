@@ -1,0 +1,21 @@
+//default font-size:12px;
+//default line-height:20px;
+@base-font:12;//base font in pixels
+
+.font-size(@sizeValue,@attr:font-size) {
+  @remValue: @sizeValue;
+  @pxValue: (@sizeValue * 10);
+  @{attr}: ~"@{pxValue}px"; 
+  @{attr}: ~"@{remValue}rem";
+}
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Arial, sans-serif;
+    margin:0px;
+    padding:0px;
+    font-size:0.75em;//default font size equal to 12px;
+    line-height:1.25em;
+}
+
+h3,.h3{
+    font-size:
+} 
